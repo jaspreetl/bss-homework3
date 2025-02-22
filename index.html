@@ -6,8 +6,59 @@
 <meta property="og:title" content="Jaspreet Lal's Homepage">
 <link rel="stylesheet" href="styles.css">
 <meta property="og:description" content="Dual Masters Student at Cornell Tech & Open Data Intern at MTA">
-<style></style>
-<script src=""></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .profile-pic {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 50%;
+    }
+
+    .api-data {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .art-img {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    document.getElementById('fetch-art').addEventListener('click', () => {
+        fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/100')
+            .then(response => response.json())
+            .then(data => {
+                const artImg = document.getElementById('art-img');
+                const artTitle = document.getElementById('art-title');
+                
+                artImg.src = data.primaryImage;
+                artTitle.textContent = data.title;
+                
+                document.getElementById('artwork').classList.remove('hidden');
+            });
+    });
+</script>
 
 <body>
     <header>
@@ -17,9 +68,18 @@
 
     <section class="bio">
         <img src="images/IMG_0598.jpg" alt="LA" class="profile-pic">
-        <p>Hello! I’m a tech enthusiast passionate about urban dynamics, data analytics, and exploring city systems. Currently diving deep into transportation data at the MTA and working on personal projects like Peaks, a hiking app.</p>
+        <p>I am a graduate student, studuing in Cornell Tech's class of 2026. I am pursuing a dual degree in applied information science and information systems with a concentration in urban technology. With a strong foundation in software engineering and data analytics, I thrive on solving complex problems and leveraging technology to create innovative solutions.</p>
+        <p>Thank you for taking the time to learn more about me. I am always open to new opportunities and collaborations. Feel free to reach out to me via on <a href="https://www.linkedin.com/in/jaspreet-lal-232a171b2/">LinkedIn</a>.</p>
     </section>
 
-    
+    <section class="api-data">
+        <h2>Artwork from the Met Museum</h2>
+        <button id="fetch-art">Fetch Artwork</button>
+        <div id="artwork" class="hidden">
+            <img id="art-img" src="" alt="Artwork" class="art-img">
+            <p id="art-title"></p>
+        </div>
+    </section>
+
 </body>
 </html>
