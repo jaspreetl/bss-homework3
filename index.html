@@ -6,41 +6,95 @@
 <meta property="og:title" content="Jaspreet Lal's Homepage">
 <link rel="stylesheet" href="styles.css">
 <meta property="og:description" content="Dual Masters Student at Cornell Tech & Open Data Intern at MTA">
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        color: #333;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 20px;
     }
 
     header {
         text-align: center;
         padding: 20px;
+        background: #6200ea;
+        color: #fff;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .bio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
     }
 
     .profile-pic {
         width: 100%;
-        max-width: 400px;
+        max-width: 300px;
+        height: auto;
         border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .api-data {
         text-align: center;
         margin: 20px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .art-img {
         max-width: 100%;
+        height: auto;
         border-radius: 10px;
         margin-top: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background: #6200ea;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #3700b3;
     }
 
     .hidden {
         display: none;
+    }
+
+    footer {
+        margin-top: 20px;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        background: #6200ea;
+        color: #fff;
+        border-radius: 10px;
     }
 </style>
 
@@ -80,6 +134,10 @@
             <p id="art-title"></p>
         </div>
     </section>
+
+    <footer>
+        <p>&copy; 2025 Jaspreet Lal</p>
+    </footer>
 
 </body>
 </html>
