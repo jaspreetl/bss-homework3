@@ -63,12 +63,15 @@
     }
 
     .art-img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        margin-top: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+    width: 100%;
+    max-width: 300px; /* Maximum width */
+    aspect-ratio: 1 / 1; /* Keeps the image square */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 
     button {
         padding: 10px 20px;
@@ -98,22 +101,6 @@
     }
 </style>
 
-<script>
-    document.getElementById('fetch-art').addEventListener('click', () => {
-        fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/100')
-            .then(response => response.json())
-            .then(data => {
-                const artImg = document.getElementById('art-img');
-                const artTitle = document.getElementById('art-title');
-                
-                artImg.src = data.primaryImage;
-                artTitle.textContent = data.title;
-                
-                document.getElementById('artwork').classList.remove('hidden');
-            });
-    });
-</script>
-
 <body>
     <header>
         <h1>Jaspreet Lal</h1>
@@ -138,6 +125,22 @@
     <footer>
         <p>&copy; 2025 Jaspreet Lal</p>
     </footer>
+    <script>
+        document.getElementById('fetch-art').addEventListener('click', () => {
+            fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/100')
+                .then(response => response.json())
+                .then(data => {
+                    const artImg = document.getElementById('art-img');
+                    const artTitle = document.getElementById('art-title');
+                    
+                    artImg.src = data.primaryImage;
+                    artTitle.textContent = data.title;
+                    
+                    document.getElementById('artwork').classList.remove('hidden');
+                });
+        });
+    </script>
 
 </body>
 </html>
+
